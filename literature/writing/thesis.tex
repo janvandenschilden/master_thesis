@@ -1,0 +1,240 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper,
+top=1in, 
+bottom=1in, 
+left=1in, 
+right=1in
+]{geometry}
+\usepackage{verbatim}
+\usepackage[backend=biber,
+style=authoryear,
+bibencoding=utf8]{biblatex}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{pythonhighlight}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{xurl}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\addbibresource{sources.bib}
+\begin{document}
+\includegraphics[width=\linewidth]{./logo.jpg}
+\subsection*{Interuniversity Institute of Bioinformatics in Brussels}
+\vfill
+\section*{Large scale comparison between the biophysical landscape of cytoplasmic and periplasmic proteins with focus on the effect of signal peptides in Gram-negative Bacteria}
+
+M\'emoire pr\'esent\'e en vue de l'obtention du dipl\^ome de Master en Bioinformatique et Mod\'elisation
+
+\vfill
+\subsection*{Jan Van den Schilden}
+\subsection*{Promoter: Prof. Dr. Wim Vranken}
+\subsection*{IB2}
+\paragraph*{Academic year: 2019-2020}
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+	\input{./introduction/introduction.tex}
+\newpage
+
+\section{Literature review}
+%\input{0.protein_introduction/0.protein_introduction}
+	\subsection{Central dogma of molecular biology}
+		\input{./literature_review/central_dogma/central_dogma.tex}
+	\subsection{Proteins}
+		\input{./literature_review/proteins/general.tex}
+		\subsubsection{Amino acids}
+			\input{./literature_review/proteins/amino_acids/amino_acids.tex}
+		\subsubsection{Primary structure}
+			\input{./literature_review/proteins/primary_structure/primary_structure.tex}
+		\subsubsection{Secondary structure}
+			\input{./literature_review/proteins/secundary_structure/secondary_structure.tex}
+			\paragraph{Alpha helix}
+				\input{./literature_review/proteins/secundary_structure/helix/helix.tex}
+			\paragraph{Beta sheet}
+				\input{./literature_review/proteins/secundary_structure/sheet/sheet.tex}
+		\subsubsection{Tertiary and quaternary structure}
+			\input{./literature_review/proteins/tertiary_quaternary/tertiary_quaternary.tex}	
+		\subsubsection{Dynamics}
+			\input{./literature_review/proteins/dynamics/dynamics.tex}
+
+			\input{./literature_review/proteins/dynamics/idp.tex}
+	\subsection{Protein feature prediction}
+		\input{./literature_review/feature_prediction/biophysical_landscape/biophysical_landscape.tex}
+		\subsubsection{Sequence based predictors of biophysical features}
+			\input{./literature_review/feature_prediction/sequence_based/sequence_based.tex}
+	\subsection{Subcellular localization of the proteome}
+		\subsubsection{Protein localization}
+			\input{./literature_review/subcellular_location/protein_localization/protein_localization.tex}
+		\subsubsection{proteome distribution}
+			\input{./literature_review/subcellular_location/proteome_distribution/proteome_distribution.tex}
+		\subsubsection{Signal peptides}
+			\input{./literature_review/subcellular_location/signal_peptides/signal_peptides.tex}
+			
+			\input{./literature_review/subcellular_location/signal_peptides/structure.tex}
+			\paragraph{N-region}
+				\input{./literature_review/subcellular_location/signal_peptides/N_region/N_region.tex}
+			\paragraph{H-region}
+				\input{./literature_review/subcellular_location/signal_peptides/H-region/H-region.tex}
+			\paragraph{C-region}
+				\input{./literature_review/subcellular_location/signal_peptides/C-region/C-region.tex}
+			\paragraph{Pro-region}
+				\input{./literature_review/subcellular_location/signal_peptides/Pro-region/Pro-region.tex}
+		%\subsubsection{Secretory systems}
+		%	\input{./literature_review/subcellular_location/secretory_systems/secretory_systems.tex}
+		\subsubsection{Predicting protein location}
+			\input{./literature_review/subcellular_location/prediction/prediction.tex}
+			\input{./literature_review/subcellular_location/general_features_predictors/general_features_predictors.tex}
+	\subsection{The UniProt Knowledge Database}
+		\input{./literature_review/UniProtKB/uniprot.tex}
+		\subsubsection{Database growth}
+			\input{./literature_review/UniProtKB/database_growth/database_growth.tex}
+		\subsubsection{Navigation through text search}
+			\input{./literature_review/UniProtKB/text_search/text_search.tex}
+		\subsubsection{UniProtKB REST APIs}
+			\input{./literature_review/UniProtKB/api/api.tex}
+		\subsubsection{UniRep}
+			\input{./literature_review/feature_prediction/UniRep/UniRep.tex}
+\newpage
+
+\section{Aims}
+	\input{./aims/aims.tex}
+\newpage
+
+\section{Methods}
+	%\input{2.methods/2.methods.tex}
+	\input{./methods/code_availability.tex}
+	\subsection{UniProtKB retrieval via queries (REST API)}
+		\input{./methods/uniprotRetrieve/uniprotRetrieve.tex}
+	\subsection{UniProtKB database mapping (REST API)}
+		\input{./methods/uniprotMapping/uniprotMapping.tex}
+	\subsection{blastp}
+		\input{./methods/blastp/blastp.tex}
+	\subsection{cd-hit}
+		\input{./methods/cd-hit/cd-hit.tex}
+	\subsection{Clustal Omega}
+		\input{./methods/clustal_omega/clustal_omega.tex}
+	\subsection{EFoldMine and DynaMine biophysical predictions}
+		\input{./methods/biophysical_predictions/biophysical_predictions.tex}
+		\input{./methods/biophysical_predictions_mapping/biophysical_predictions_mapping.tex}
+	\subsection{Wilcoxon-Ranksum}
+		\input{./methods/wilcoxon-ranksum/wilcoxon-ranksum.tex}
+	\subsection{PCA}	
+		\input{./methods/pca/pca.tex}
+	\subsection{Pipeline to compare the biophysical landscape of periplasmic and cytoplasmic proteins}
+		\paragraph{Scope}
+			\input{./results/general_comparison/dataset_generation/scope/scope.tex}
+		\paragraph{Collecting proteins}
+			\input{./results/general_comparison/dataset_generation/collection/collection.tex}
+		\paragraph{Reducing sequence identity}
+			\input{./results/general_comparison/dataset_generation/sequence_identity/sequence_identity.tex}
+		\paragraph{Predicting biophysical features}
+			\input{./results/general_comparison/dataset_generation/biophysical_prediction/biophysical_predictions.tex}
+	\subsection{Pipeline for large scale cytoplasmic / periplasmic twin search}
+		\input{./methods/pipeline_twin_search/pipeline_twin_search.tex}
+		\subsubsection{UniProtKB query retrieval REST API}
+			\input{./methods/pipeline_twin_search/query_retrieval_api/query_retrieval_api.tex}
+		\subsubsection{Cluster proteins by organism}
+			\input{./methods/pipeline_twin_search/cluster_by_organism/cluster_by_organism.tex}
+		\subsubsection{Search for twins using blastp}
+			\input{./methods/pipeline_twin_search/blastp_twin_search/blastp_twin_search.tex}
+		\subsubsection{Further filter and processing steps}
+			\input{./methods/pipeline_twin_search/msa_generation/msa_generation.tex}
+	\subsection{UniRep based analysis}
+		\input{./methods/UniRep/UniRep.tex}
+	\subsection{Visualization}
+		\input{./methods/visualization/visualization.tex}
+\newpage
+
+\section{Results and discussion}
+	\subsection{General comparison of the biophysical landscape between cytoplasmic and periplasmic proteins}
+		\input{./results/general_comparison/intro.tex}
+		\subsubsection{Global feature comparison}
+			\input{./results/general_comparison/intro.tex}
+			\paragraph{Protein length}
+				\input{./results/general_comparison/global_comparison/length/length.tex}
+			\paragraph{Amino acid composition}
+				\input{./results/general_comparison/global_comparison/amino_acid_composition/amino_acid_composition.tex}
+			\paragraph{Global biophysical feature comparison}
+				\input{./results/general_comparison/global_comparison/biophysical/biophysical.tex}
+		\subsubsection{Local feature comparison}
+			\input{./results/general_comparison/local_comparison/local_comparison.tex}
+			\input{./results/general_comparison/local_comparison/graph_explanation.tex}
+			\input{./results/general_comparison/local_comparison/figures.tex}
+			%\paragraph{Propensity towards helix formation}
+			%	\input{./results/general_comparison/local_comparison/helix/helix.tex}
+			\paragraph{Signal Peptide}
+				\input{./results/general_comparison/local_comparison/signal_peptide/signal_peptide.tex}
+			\paragraph{Grey region}
+				\input{./results/general_comparison/local_comparison/black_region/black_region.tex}
+			\paragraph{Green region}
+				\input{./results/general_comparison/local_comparison/green_region/green_region.tex}
+			\paragraph{Red region}
+				\input{./results/general_comparison/local_comparison/red_region/red_region.tex}
+			\paragraph{Yellow region}
+				\input{./results/general_comparison/local_comparison/yellow_region/yellow_region.tex}
+			\paragraph{Blue region}
+				\input{./results/general_comparison/local_comparison/blue_region/blue_region.tex}
+			\paragraph{Final remarks}
+				\input{./results/general_comparison/local_comparison/final_remarks/final_remarks.tex}
+				
+	\subsection{Comparison of the biophysical landscape between twins}
+		
+		\input{./results/twins/why_twins.tex}
+		%\subsubsection{Large scale cytoplasmic/periplasmic twin search}
+		%	\input{./results/twins/dataset_generation/dataset_generation.tex}
+		\subsubsection{Biophysical feature comparison between twins}
+			\input{./results/twins/twins.tex}
+	\subsection{Separation of cytoplasmic and periplasmic proteins in UniRep biophysical feature space}
+		\input{./results/UniRep/UniRep.tex}
+% 	\subsection{Signal peptide clustering }
+	\subsection{Structural information available for twins}
+	\input{./results/structures/structures.tex}
+\newpage
+
+\section{Conclusions}
+	\input{./conclusion/conclusion.tex}
+\newpage
+
+\section*{Summary}
+	\input{./summary/summary.tex}
+\newpage
+
+\printbibliography
+\newpage
+
+\section*{Appendix}
+		\subsubsection*{uniprotRetrieve.py}
+			\inputpython{appendix/uniprotRetrieve.py}{1}{1000}
+		\subsubsection*{uniprotMapping.py}
+			\inputpython{appendix/uniprotMapping.py}{1}{1000}
+		\subsubsection*{generateDatabases.py}
+			\inputpython{appendix/generateDatabases.py}{1}{1000}
+		\subsubsection*{runblast.py}
+			\inputpython{appendix/runBlast.py}{1}{1000}
+		\subsubsection*{runCDHIT.py}
+			\inputpython{appendix/runCDHIT.py}{1}{1000}
+		\subsubsection*{runCDHIT.py}
+			\inputpython{appendix/runClustalOmega.py}{1}{1000}
+		\subsubsection*{efoldminePredictionsMsa.py}
+			\inputpython{appendix/efoldminePredictionsMsa.py}{1}{1000}
+		\subsubsection*{clusterByOrganism.py}
+			\inputpython{appendix/clusterByOrganism.py}{1}{1000}
+\newpage
+
+\end{document}

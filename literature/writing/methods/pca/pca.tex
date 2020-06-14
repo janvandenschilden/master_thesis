@@ -1,0 +1,12 @@
+Points in a multiple dimensional space can be fitted by a line.
+The best fit can be defined as one that minimizes the the average squared distance from the points to the line.
+The basis vector describing this line is called the first principal component.
+The basis vector that describes the next best fitting line, orthogonal to the first is second principal component,
+a third best fitting line orthogonal to both previous forms the third principal component and so on.
+
+UniRep vectors were first scaled to a mean of 0 and standard deviation of 1 with the \textit{preprocessing} module of the \textit{sklearn} python library.
+Principal components were generated with using the \textit{decomposition} module.
+It uses the method of Minka,
+which uses a covariance matrix.
+The main goal of performing the principal component analysis in this master thesis was to visualize the 64 dimensional UniRep vectors on a 2-dimensional graph.
+Visualization was done wit \textit{matplotlib}.

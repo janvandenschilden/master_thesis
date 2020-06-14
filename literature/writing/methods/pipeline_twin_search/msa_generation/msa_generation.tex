@@ -1,0 +1,58 @@
+For each periplasmic protein, signal peptide start and end were retrieved with the UniProtKB mapping API.
+In addition, cytoplasmic and periplasmic proteins were mapped to their UniRef50 clusters.
+Also the protein lengths were retrieved,
+and for each twin the absolute difference in lengths and relative ratio was calculated.
+Twins were the ratio of the length of the largest protein divided by the length of the smallest protein was smaller than 0.75,
+were removed from the dataset, resulting in remaining \textbf{19,913 twins}.
+
+To look at twins from an evolutionary point of view, 
+a multiple sequence alignment (MSA) would have to be generated.
+Homologues have to be searched to generate such MSA,
+and many of these homologues are likely to be twins themselves in another organism, thus already in the dataset.
+Therefore twins were clustered by their UniRef50 group.
+This resulted in \textbf{16 UniRef50 clustered Twins} (Table. \ref{table:twins}).
+To show the importance of this clustering step,
+consider the following:
+\textbf{19,555} out of the \textbf{19,913} are part of the UniRef50\_P62602-UniRef50\_Q8XDH7 twin cluster.
+If protein sequences were to be used without prior clustering,
+any signal that would have come out of the analysis would be strongly biased toward this twin cluster.
+Specific mechanisms observed for that specific twin would be mistaken for more general mechanism of protein export.
+
+~\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+& Cytoplasm uniref50 & cluster size & Periplasm uniref50 & cluster size \tabularnewline
+\midrule
+\endhead
+0 & UniRef50\_Q2NVU4 & 124 & UniRef50\_A0A1X1D1X1 & 148 \tabularnewline
+1 & UniRef50\_P83221 & 4189 & UniRef50\_O53021 & 2118 \tabularnewline
+2 & UniRef50\_Q96VT4 & 1678 & UniRef50\_O59651 & 9906 \tabularnewline
+3 & UniRef50\_P0A963 & 3836 & UniRef50\_P00805 & 2537 \tabularnewline
+4 & UniRef50\_P0AAL2 & 1270 & UniRef50\_P0AAL4 & 492 \tabularnewline
+5 & UniRef50\_P10902 & 6730 & UniRef50\_P0C278 & 160 \tabularnewline
+6 & UniRef50\_P21517 & 4496 & UniRef50\_P25718 & 5447 \tabularnewline
+7 & UniRef50\_O33732 & 29 & UniRef50\_P39185 & 6749 \tabularnewline
+8 & UniRef50\_P44650 & 243 & UniRef50\_P44652 & 304 \tabularnewline
+9 & UniRef50\_P0A9L3 & 1427 & UniRef50\_P45523 & 2225 \tabularnewline
+10 & UniRef50\_P12994 & 1160 & UniRef50\_P77368 & 1614 \tabularnewline
+11 & UniRef50\_Q8ZRT8 & 1014 & UniRef50\_Q32JZ5 & 878 \tabularnewline
+12 & UniRef50\_Q72CB8 & 24 & UniRef50\_Q72EC8 & 17 \tabularnewline
+13 & UniRef50\_A0A432R1Z2 & 206 & UniRef50\_Q7M827 & 379 \tabularnewline
+14 & UniRef50\_P62602 & 2175 & UniRef50\_Q8XDH7 & 3943 \tabularnewline
+15 & UniRef50\_Q32JZ5 & 878 & UniRef50\_Q8ZRT8 & 1014 \tabularnewline
+\bottomrule
+\caption{\textbf{Twins of UniRef50 clusters.}
+Table shows twins of UniRef50 clusters with cluster size next to it.
+Each twin of clusters contains at least one pair of twin proteins within the same organism.}
+\label{table:twins}
+~\end{longtable}
+
+For each clusters, members were retrieved with UniRepKb mapping API,
+and sequence identity was reduced with cd-hit (threshold 0.9).
+A msa was generated with Clustal omega.
+Biophysical features were predicted using DynaMine and EFoldMine,
+for the periplasmic proteins, this was repeated with and without signal peptide.
+For each twin and for every aligned position, the Wilcoxon-Ranksum was utilised to see where the distributions of biophysical properties differed significantly (threshold 0.05).
+For each position when there were significant differences in distribution, medians were determined for both the cytoplasmic and periplasmic proteins, and the difference in medians was stored in a list per position.
+This means that each position could have at most 16 values (one for each twin).
+Of these values, the median and quartiles were calculated and plotted.
+

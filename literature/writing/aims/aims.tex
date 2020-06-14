@@ -1,0 +1,47 @@
+% short rehearsal of the problem 
+In order for periplasmic proteins to translocate they contain a signal peptide 
+and seem to display different biophysical characteristics.
+In this master thesis the difference in biophysical landscape between cytoplasmic 
+and periplasmic proteins was examined by four complementary approaches.
+
+% global approach
+In the first approach,
+a large dataset containing cytoplasmic and periplasmic proteins of the Gram-negative Gammaproteobacteria was extracted from UniProtKB,
+and biophysical characteristics were compared.
+It was examined whether periplasmic proteins are more likely to form certain secondary structures than cytoplasmic proteins.
+Did they display an increased or decreased tendency toward sidechain and backbone dynamics,
+and whether there were observations to indicate that periplasmic proteins fold more slowly than cytoplasmic ones.
+
+% General comparison 
+In the second approach, the same dataset and features were examined, 
+but position within the protein was taken in into account.
+It was examined if there was a general trend of features to appear in certain regions of the protein.
+In addition, the biophysical characteristics of signal peptides was explored,
+and there effect on the N-terminal regions of the mature domain of periplasmic proteins.
+
+% twin comparison 
+Evolution tends to tinker rather than invent.
+This means new functionalities come into existence mostly by tweaking existing proteins, 
+not by designing new ones from scratch. 
+With this in mind,
+there exist a whole set of proteins that homologues to each other, 
+but one exist in the cytoplasm and on in the periplasm.
+Such pairs will be further referred to as twins.
+Interesting about these twins is that there structure and biophysical features are very similar,
+and differences in characteristics are more likely related to them being in different compartments,
+as that is their main difference.
+Therefore, the third approach consisted of searching the UniProtKB databank for such twins and comparing there biophysical properties.
+One advantage over previous approach is that twins can be directly aligned to each other,
+making the differences more region specific.
+
+
+% UniRep exploratory analysis
+Finally, in the fourth approach it was examined how well UniRep representation could separate periplasmic proteins from cytoplasmic ones,
+and whether the exclusion of the signal peptide had any effect on that.
+The UniRep representation was constructed by letting a recurrent neural network explore the total of sequence space and build its own internal representation in a unsupervised way.
+Therefore, it is unconstrained by mental models of the human mind, 
+potentially improving classification.
+This was a group project for the course "Techniques of Artificial Intelligence" in which I collaborated with 
+Jessica Ody, 
+Guillaume Buisson-Chavot, 
+and Anthony Cnudde.

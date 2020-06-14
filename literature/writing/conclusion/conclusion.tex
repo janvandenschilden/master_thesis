@@ -1,0 +1,60 @@
+% Rehearsal of main question
+Examination of the difference in global biophysical features between cytoplasmic and periplasmic proteins in Gram-negative Bacteria seems to agree with the observations made by \cite{loos2019}.
+Periplasmic proteins show an increased tendency towards the formation of coil and sheet structures,
+but decreased propensity towards the formation of helical structures.
+On average, periplasmic proteins display lower backbone and sidechain dynamics,
+and a decreased tendency towards early folding.
+This agrees with the hypothesis that periplasmic proteins have to delay the folding process to translocate to the periplasm.
+
+% Main features observed (confirmation of other paper)
+Region specific differences in biophysical features were examined by two complementary approaches.
+The general approach including the periplasmic and cytoplasmic proteins of the class of Gammaproteobacteria.
+In general, cytoplasmic proteins seem to display a region of increased flexibility and dynamics , and reduced propensity towards early folding near postion 10 to 20. 
+In periplasmic proteins this region is extended by roughly 10 amino acids and has a slight shift towards the C-terminal end.
+The first 10 amino acids however, 
+display an increased tendency to early folding, 
+an effect induced by the signal peptide.
+Another interesting observation is that cytoplasmic proteins have an above average propensity to form a helix near position 25,
+even while propensities to form a helix are averaged out over the large dataset in the rest of the protein.
+In contrast, periplasmic proteins tend to have a decreased tendency towards helix formation starting from that same region until residue 70.
+Periplasmic proteins have an increased tendency to form coil like structures and display increased backbone flexibility from position 20 to 70, 
+except near position 33 where there is an increased tendency towards early folding and the formation of a sheet.
+
+% local features observed by two complementary approaches
+Similar differences were observed in the twin approach.
+The effect of signal peptides on biophysical features near the N-terminal end was again observed,
+most strongly in propensity towards helix formation and backbone dynamics.
+As in previous approach, the region near position 33 is highlighted to display increased propensity towards early folding and decreased tendency to form helical structures in cytoplasmic proteins.
+However, where in the general approach a tendency was seen to form sheet structures,
+the twins showed by contrast an increased propensity to form helical structures.
+
+% explanation
+The reasons for these differences remain unclear.
+Most likely, they are related to the delay of the folding process,
+interactions with the translocation machinery,
+or the formation of functional proteins in the periplasm.
+It is possible that the high propensity towards early folding of the signal peptides,
+and the increased propensity in the N-terminal region of the protein,
+make very early folding foldons.
+These foldons would than form interactions with other regions of the protein that do not occur in the fully folded structure,
+thereby delaying the process.
+The early folding region near position could possibly have a similar effect.
+However, the position specificity seems to suggest that is forms some kind of interactions with translocation machinery.
+
+% limitations
+It should be noted that the tendencies described above don't need to be part of the same mechanism.
+Also, there are very likely many biophysical differences that are position aspecific,
+and can therefore not be elucidated by the analysis described above.
+This research was purely based on sequential information and the predictions generated with these sequences.
+However, a list of protein structures is provided as it was very straight forward to get these results with the UniProtKB pipeline that was designed for this master thesis. 
+This list could be interesting to other research groups.
+
+% UniRep prediction
+Finally, the UniRep (\cite{alley2019}) representation was used to make classifiers that separates cytoplasmic and periplasmic proteins.
+It showed that even without including signal peptides,
+almost 95 percent of the proteins could be  correctly classified, 
+which stresses the importance of the mature domain.
+Though this was only an exploratory analysis, and a more rigorous approach should be performed to have u predictors.
+The usage of UniRep vectors seems very promising.
+Most importantly, they stress the fact there is a huge potential to use the undescribed protein sequences.
+Including this information could improve the performance of predictors and make them applicable on a wider portion of the protein sequence space.

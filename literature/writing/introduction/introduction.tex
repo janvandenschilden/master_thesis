@@ -1,0 +1,53 @@
+% Part about UniProtKb
+With protein and nucleotide sequencing getting cheaper every year, 
+large-scale sequencing efforts are increasing the coverage of complete proteomes.
+The amount of protein sequences in UniProtKB has been growing exponentially.
+As on the moment this paragraph was written, 
+UniprotKB contained a total of 181,252,700 protein sequences. 
+562,253 were reviewed by expert curators and part of the UniProtKB/Swiss-Prot database.
+180,690,447 unreviewed sequences are part of the UniprotKB/TrEMBL database. 
+That means that experimental information about functionality or biophysical features is only available for about 0.3 percent of the proteins.
+For 99.7 percent, only the protein sequence is known.
+% Relation between protein function and primary sequence
+Local and distant interactions along this the structure guide the folding process,
+thereby determining structure , dynamics and function.
+Essentially, all of the biophysical features are encoded within the primary sequence.
+However, predicting and extracting these features, given only the protein sequence, has proven to be a challenging task,
+and still a topic of ongoing research.
+
+% More specific about dynamics
+Traditionally, protein function was thought to be a direct result of protein structure,
+But in recent years it has become clear that the structure provides only part of the picture.
+Other biophysical features, such as the propensity toward dynamics, disorder, and early folding also seem to play a fundamental role for protein functionality.
+A new generation of machine learning based predictors that only need a single protein sequence as input
+are being developed at the Bio2Byte research lab at the Interuniversity Institute of Bioinformatics in Brussels.
+These predictors are trained on in-solution characteristics that highlight the importance of local interactions.
+Two such predictors are Dynamine, which predicts backbone an sidechain dynamics,
+and EFoldMine, which predicts how likely amino acids are involved in early folding events.
+Not only can these predictors predict biophysical features without relying on prior structural knowledge,
+the predictions are also very fast,
+making them scalable for computational high-throughput methods.
+
+% Protein localization and signal peptides
+Cells are organised into different subcellular compartments including
+the cytoplasm, the periplasm, the cell wall, and the nucleosome.
+Signal peptides are short polypeptides at the N-terminal end of proteins that act as zip-code within the cell,
+providing information to the cell how to sort the proteome over the different compartments.
+These peptides typically have a length between 25 and 30 residues.
+In general, signal peptides display low sequence similarity,
+but there is a strong conservation of biophysical properties.
+While signal peptides play an important role in protein translocation,
+they are on themselves insufficient to guarantee this process.
+A study (\cite{orfanoudaki2017}) has shown that cytoplasmic proteins can be distinguished from the secreted with an accuracy up to 95 percent using only features present in the mature domain.
+One prominent difference seems to be that secreted proteins delay the folding process 
+and display an increased flexibility and dynamics.
+The reason for this difference, and what biophysical effect signal peptides have on these characteristics remains unclear.
+
+% What is unknown and what was researched
+In this master thesis,
+the biophysical features of cytoplasmic and periplasmic proteins were compared on an extensive Gram-negative Bacteria protein dataset.
+In addition, the effect of signal peptides on these features was examined.
+The dataset was extracted from the public database UniProtKB by making use of their annotation system.
+Biophysical predictions were acquired with state of the art machine learning based predictors that require only a single protein sequence as input,
+making this method applicable for the full protein sequence space.
+

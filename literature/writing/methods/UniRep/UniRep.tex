@@ -1,0 +1,29 @@
+\cite{alley2019} provides a github repository (\url{https://github.com/churchlab/UniRep}) with a tutorial on how to use the mLSTM-RNN.
+Three different architectures are provided, 
+generating a UniRep vector of length 64, 128, or 1900.
+A function is provided to generate a UniRep vector for a given protein sequence.
+
+The UniProtKB query retrieval REST API was utilised to retrieve periplasmic and cytoplasmic proteins from the class of Gammaproteobacteria.
+Sequences were clustered by cd-hit to and identity of 50 percent.
+UniRep vectors of length 64 were generated for the representatives of each cluster.
+For the periplasmic proteins, a vector was generated based on a proteins sequence containing the signal peptide,
+and another vector excluding the signal peptide.
+
+Classifiers were constructed based on different machine learning methods:
+multiple linear regression,
+decision tree,
+random forest,
+Support Vector machine,
+and neural network.
+Each of these was implemented from scratch in python,
+code can be found on \url{https://github.com/ancnudde/Artificial_intelligence}.
+The implementation of these classifiers was a group project for with the following collaborators:
+Anthony Cnudde,
+Jan Van den Schilden,
+Guillaume Buisson-Chavot, 
+and Jessica Ody.
+
+Performance is given by following equation:
+~\begin{equation*}
+	accuracy = \frac{Correctly\ predicted\ in\ test\ set}{Correctly\ and\ wrongly\ predicted\ in\ test\ set}
+~\end{equation*}

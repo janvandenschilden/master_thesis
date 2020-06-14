@@ -1,0 +1,18 @@
+While it is still not possible to predict the behaviour of the whole protein from sequence, 
+there exist machine learning based predictors that can predict certain characteristics. 
+A new generation of predictors, developed at the VUB, 
+use in-solution characteristics of proteins and include information about intrinsically disordered regions, setting them apart om structure-based methods. 
+The predictions are based on statistical information and highlight the importance of local interactions in a sequence between amino acids close to each other in the sequence, and the relative positions of different residues, 
+e.g. a tyrosine could hypothetically increase the backbone dynamics when 3 amino acids apart from a valine, 
+but reduce it when 7 amino acids apart. 
+These predictions are very fast, which makes them scalable for computational high-throughput methods. 
+DynaMine (\cite{cilia2013}) predicts the backbone dynamics of a protein. 
+The predictor is trained on NMR data of proteins in solutions. 
+Disordered regions are identified with similar accuracy as compared to the best other predictors, 
+but without relying on structural information or prior disorder knowledge.
+It even shows great potential in distinguishing between folded domains, molten globules, disordered linkers and pre-structured binding motifs of different sizes. 
+Other DynaMine flavors, for sidechain dynamics and secondary structure propensities, 
+were developed to create EFoldMine (\cite{raimondi2017}). 
+This method predicts which amino acids are likely involved in early folding events, as detected by hydrogen deuterium exchange data from NMR pulsed labelling experiments. 
+Predicted early folding residues are frequently those with a lot of interactions in the folded structure and they also display evolutionary covariation. 
+Early folding events are likely defined by intrinsic local interactions and could have lasting effect in subsequent states. 

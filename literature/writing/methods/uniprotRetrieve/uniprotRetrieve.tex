@@ -1,0 +1,72 @@
+UniProtKB provides a REST API to retrieve data via queries similar to how text search works on the website interface.
+The API utilises the native functionality of HTTP GET requests.
+The idea is that all of the necessary information is encoded within the URL.
+Subsequently a request is made to the UniProtKB server, 
+which collects the data from the database, 
+restructures it to the requested formatn
+and sends the information back to the user.
+
+The URL follows a certain format (shown below in the frame),
+it starts with a fixed base 
+(\url{https://www.uniprot.org/uniprot/?}), 
+complemented  by a set of 'parameter=value' pairs.
+The order of the parameters is of no importance,
+and not all parameters have to be provided.
+The server will fall back to default values in that case.
+The \textbf{query} has a similar format to what is used by the website text search interface,
+but spaces are replaced by '+' symbols.
+There are different  \textbf{formats} as which the data can be downloaded:
+\textit{
+html,
+tab,
+xls, 
+fasta,
+gff,
+txt,
+xml,
+rdf,
+list,
+and rss}.
+The \textbf{columns} parameter indicates which fields should be provided in the \textit{tab} or \textit{xls} format.
+The \textbf{include} parameters means different things, depending on what format was requested.
+There is the possibility to Gzip the data, which is provided by the \textbf{compress} parameter.
+Finally, if the user only wants N results,
+it can be passed with the \textbf{limit} parameter.
+By default, the counts starts from the first entry, 
+but this can be changed with the \textbf{offset} parameter.
+
+
+~\begin{tcolorbox}
+	\url{
+	https://www.uniprot.org/uniprot/?
+	query=<<QUERY>>
+	&
+	format=<<FORMAT>>
+	&
+	columns=<<COLUMNS>>
+	&
+	include=<<yes|no>>
+	&
+	compress=<<yes|no>>
+	&
+	limit=<<LIMIT>>
+	& 
+	offset=<<OFFSET>>
+	}
+ ~\end{tcolorbox}
+
+Implementation of the REST API was done in Python (code in Appendix section \textit{uniprotRetrieve.py}).
+Datasets resulting from a query searches can easily comprise multiple gigabytes,
+even more than what is available in RAM memory.
+Therefore, the \textbf{requests} (\cite{reitz2012}) library was chosen to handle the HTTP GET requests,
+because it has the option to retrieve data as a stream of chunks.
+This allows the data to be stored on the hard disk directly, without putting a load on memory.
+Sometimes the UniProtKB server is overloaded by requests and will not give anything back.
+As this could break a pipeline,
+the implementation was made more robust to these types of failures by
+designing it to retry up to 10 attempts to do a request.
+Each attempt, the program will wait an increasingly amount of time before putting a new request. 
+Servers often ignore request that come in to frequently from the same origin.
+Also special care was taken so that the \textbf{query} parameter can be provided in the same manner as when you would use the text search interface on the website. 
+This way, a query can be gradually build up with the query builder, 
+and subsequently copied as argument for in a pipeline.

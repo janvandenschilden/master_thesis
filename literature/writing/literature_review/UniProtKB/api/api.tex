@@ -1,0 +1,24 @@
+The website interface is a very convenient and user friendly way to retrieve information.
+Sometimes it would be useful however to access and download this in automated way.
+Imagine yourself collecting all the protein sequences that have an annotation of being in the cytoplasm for 20 different organisms of interest.
+For each organism, a search query would have to be entered,
+the download button has to be clicked and the FASTA format selected.
+Then some more clicking to specify the download location, etc.
+And this has to be repeated for every of the 20 organisms. 
+Now imagine that halfway you notice that UniProtKB makes the distinction 
+between the "cytoplasm" and "cytosol" annotation.
+Both would serve the purpose of the research however, 
+so to include "cytosol" proteins, you would have to start all over again.
+Easier would be to just change the query parameter and automatically iterate through all the other steps.
+Another reason why someone would like to automate the retrieval process is that the database is constantly growing.
+More research is being done, and curators add manual annotations.
+Moreover, automatic pipelines improve in accuracy, so also unreviewed annotations get better and more abundant.
+Therefore it could be useful to reuse a search query and redo an analysis with a more up to date dataset.
+UniProtKB provides programmatic access to its database in the form of a set of REST APIs.
+Not only is there an API to programmatically perform a query search as in the example above,
+there are also REST APIs for 
+retrieving individual entries,
+mapping IDs from one database to another,
+format conversion, 
+and more
+(\cite{uniprot_api}).

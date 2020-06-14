@@ -1,0 +1,12 @@
+*.aux
+*.log
+*autosave**
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.blg
+*.bcf
+*.bbl
+*.toc
+.ipynb_checkpoints

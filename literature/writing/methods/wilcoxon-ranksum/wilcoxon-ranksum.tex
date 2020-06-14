@@ -1,0 +1,10 @@
+To test whether there was a significant difference between observations of two sets of data,
+the Wilcoxon-ranksum test can be used.
+It does not assume the data to be normally distributed,
+making it more generally applicable.
+The implementation of the python library \textit{scipy} was used.
+It accepts two lists of observations as input,
+and returns a statistic and a p-value. 
+Lower p-values mean that de difference is more significant.
+During the twin comparison of biophysical features, 
+a threshold of 0.05 was set.

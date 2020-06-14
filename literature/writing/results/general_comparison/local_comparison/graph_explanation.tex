@@ -1,0 +1,28 @@
+
+For each residue of every protein, 
+the following 6 biophysical features were predicted:
+\textit{
+helix,
+sheet,
+coil,
+sidechain dynamics,
+backbone dynamics},
+and
+\textit{early folding propensity}.
+For every residue position,
+the median, first and third quartile of every biophysical prediction was calculated.
+This was done seperately for the cytoplasmic proteins,
+periplasmic proteins,
+and again for the periplasmic proteins but with the signal peptide cut off.
+For example,
+there are 30,632 cytoplasmic proteins in the dataset, thus 30,632 first residues. 
+Each of these residues can have a different local environment, so different biophysical predictions.
+The median and quartiles are then calculated for these 30,632 values and plotted on a graph.
+This is repeated for all different residue positions, generating a continuous box-plot.
+Similarly, medians and quartiles are calculated for the periplasmic proteins, one time with signal peptide and one time without.
+Signal peptides are indicated by a negative residue position.
+Because the proteins within this dataset have at most 50 percent sequence identity, 
+protein specific tendencies will be averaged out.
+Only very general position specific propensities that are true for most proteins will be detected.
+Therefore, only the first 70 residues of the mature domain are shown in the graphs below.
+Similarly, the general effect of the signal peptide on its local sequence environment is shown.

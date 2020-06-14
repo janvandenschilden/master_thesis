@@ -1,0 +1,38 @@
+Before a machine learning based predictor can be trained to decode biophysical features from protein sequence.
+A training set needs to be created either by performing the experiments,
+or by gathering publicly available data.
+UniProtKB has around 180 million protein sequences available,
+but only 560,000 of those are reviewed, 
+potentially containing the experiments with the biophysical features that a predictor needs to learn.
+This covers only 0.3 percent of the sequence space, 
+meaning that most of it remains largely unexplored.
+However, the knowledge that a protein exist, is already important information.
+The fact that evolution has come up with a specific combination of amino acids to fulfill some (unknown) function is already important information. 
+The question remains how to incorporate this into the training data.
+
+One way to partly alleviate this limitation is by considering a protein sequence with known function or biophysical properties and assuming that sequences with a certain percentage of sequence identity will have similar biophysical features and function.
+This is in fact largely what the automated annotation system of UniProtKB is based on.
+One way to subsequently incorporate such evolutionary information into the predictor would be by aligning the homologues sequences into a multiple sequence alignment and take amino acid variation into account.
+While such methods cover a considerably larger portion of the sequence space, 
+it only works if at least one homologue has been experimentally described, and more to have some confidence.
+Regions in the sequence space without any experimental information are still neglected.
+
+\cite{alley2019} tried to use the full potential of the sequence space by training a 
+multiplicative long short-term memory recurrent neural network
+(mLSTM RNN) with the task of next character prediction.
+To get better at this task,
+the neural networks changes the weights of its hidden neurons,
+effectively discovering protein features in a unsupervised way.
+Since only protein sequence information needs to be known,
+all regions of proteins sequence space are included in the training.
+When trained, a sequence can be used as input to the neural network,
+and the hidden states extracted into a fixed length vector,
+which forms a semantically rich representation of the protein.
+The research group called this the UniRep representation.
+Humans cannot interpret this representation directly,
+but machine learning methods can used it to train a predictor, 
+for example for biophysical features.
+Even though experimental data is still necessary for that,
+the UniRep representation makes it possible for these predictions to be more generalized,
+as information from the whole protein sequence space is incorporated.
+

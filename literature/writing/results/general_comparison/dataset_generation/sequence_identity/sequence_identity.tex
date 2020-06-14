@@ -1,0 +1,19 @@
+There is some bias towards which Bacteria are sampled for genome sequencing.
+As most protein sequence information is obtained by translating these genomes,
+there is also a bias in the protein sequence space.
+Traditionally, only cultivatable species could be sequenced as a minimum amount of DNA was necessary for the process.
+With the rise of next generation sequencing techniques, 
+this has become less of a problem,
+but there is still a strong sampling bias within the set of available sequences. 
+Consider for example that Bacterial life has been observed on all viable ecosystems of earth, 
+even up to kilometers under the ground.
+However, taking a sample of the soil in the backyard is much easier than drilling a hole kilometers under ground.
+As a result more soil samples are being taken than deep-earth samples.
+More soil genomes have been sequenced.
+This is only a very extreme case of a more general problem in the available sequence space:
+for some regions there are more sequences available than others.
+To avoid giving to much weight to features observed in easily sampled proteins, 
+while overlooking others,
+a general bio-informatics practice is to reduce sequence identity in protein sequence dataset.
+Proteins obtained by the query retrieval API were reduced using cd-hit with a threshold of 50 percent sequence identity,
+resulting in \textbf{30,632 cytoplasmic} and \textbf{3,883 periplasmic} proteins.

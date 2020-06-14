@@ -1,0 +1,24 @@
+To search for twins, the command line \textit{blastp} tool was used from the \textbf{ncbi-blast+} package.
+The general syntax for the tool is given below.
+
+~\begin{tcolorbox}
+	blastp -query $<<$QUERY.FASTA$>>$ -db $<<$DATABASE$>>$ -evalue $<<$EVALUE$>>$
+~\end{tcolorbox}
+
+A database can be generated from a fasta file with following command.
+
+~\begin{tcolorbox}
+	makeblastdb -in $<<$FASTA$>>$ -dbtype 'prot' -out $<<$DATABASE$>>$
+~\end{tcolorbox}
+
+Custom Python wrapper function were written for those two commands
+(for code see Appendex section \textit{generateDatabases.py} and \textit{runBlast.py}).
+
+For each organism, a database was generated using the periplasm \textit{fasta} file.
+Against this database the, cytoplasm \textit{fasta} file was searched for homology detection.
+As threshold, an e-value of 1e-10 was chosen.
+Finally, a custom parser (for code appendix section \textit{extractTwinsFromBlast.py})
+extracted the twins for the \textit{blast} file format to a simple \textit{tab} file.
+Within this file, each row represents a twin, one columns contains the identifier of the cytiplasmic protein, one the identifier of the periplasmic protein.
+In total, \textbf{31,165 twins} were found,
+spread over \textbf{780 different organisms}.

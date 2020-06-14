@@ -1,0 +1,11 @@
+UniProtKB provides a mapping service to map one database to another.
+This service can be accessed both by web interface and API.
+A wrapper was written in python to access the API.
+To speed up the homology search for twin members,
+the UniProtKB identifier was mapped to its UniRef50 cluster.
+Different UniRef50 clusters have at most 50 percent sequence identity to each other, 
+and members within a cluster have at least 50 percent sequence identity.
+In a subsequent step, 
+this UniRef50 cluster can be mapped back to a list of members it contains, 
+efficiently providing a quick \textit{hack} to retrieve homologues in a fast way.
+The UniRepKB mapping service was also used to retrieve PDB identifiers for the twins that had a structure available.

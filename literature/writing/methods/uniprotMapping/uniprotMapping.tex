@@ -1,0 +1,31 @@
+UniProtKB provides a service that maps entries from one database to another.
+Those databases can be internal (UniProtKB, UniRef, UniParc, etc.),
+but also external (PDB, RefSeq nucleotide, Entrez Gene, etc.). 
+The mapping service is both available by web interface and by programmatic access as REST API.
+
+Code of the implementation can be found in the Appendix, section \textit{uniprotMapping.py}.
+It implemented as a function that can be used in pipelines,
+it accepts 7 parameters:
+\textbf{
+fileName,
+query,
+From,
+To,
+Format,
+Columns,
+and
+OutputDir.
+}
+The \textbf{query} accepts a set of identifiers in string format, which can be separated by spaces or newline symbols.
+The \textbf{From} and \textbf{To} parameters accept respectively from which database the query is mapped and to which one.
+With the \textbf{Format} parameter,  different output formats can be chosen.
+The parameters \textbf{fileName} and \textbf{OutputDir} indicate under what name and where the file will be stored.
+
+It should be noted that it is better to limit the amount of identifiers per request.
+Generally it is a good idea not to map more than a couple of thousand identifiers at once,
+as more will tend the request to fail, 
+but not always with giving an error.
+Especially in the context of a pipeline, 
+nothing is as frustrating than starting it to run overnight,
+only to see that it failed at one of the first steps before any work was really done.
+To avoid this, it is more robust to put 30 requests of 1,000 identifiers, than one request of 30,000.

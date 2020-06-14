@@ -1,0 +1,57 @@
+When retrieving proteins with the query retrieval REST API, 
+it can be specified which features should be present (or absent).
+For the cytoplasm proteins, only proteins having an annotation of being located in the cytoplasm or cytosol were kept.
+As additional check, no signal peptides could be present.
+For the periplasmic proteins, the query asked for proteins with an annotation being located in the periplasm.
+In addition, a signal peptides should be present.
+
+Only Gram-negative Bacteria contain a periplasm. 
+However, Gram-negative Bacteria are not a monophylogenetic taxonomic group.
+Therefore, multiple datasets were generated on different taxonomic levels:
+\textit{
+Enterobacteriaceae,
+Enterobacterales,
+Gammaproteobaceria,
+Proteobacteria,
+}
+and \textit{Bacteria}.
+As example, a typical search query is shown below.
+Proteins were downloaded in \textbf{tab}-format with the following \textbf{columns}:
+\textit{
+	id,
+	organism,
+	ec,
+	sequence
+}
+
+~\begin{tcolorbox}
+	\textbf{Cytoplasmic proteins:}
+
+	QUERY="taxonomy:Bacteria (locations:(location:cytoplasm) OR locations:(location:cytosol)) NOT annotation:(type:signal)"
+	\\
+	\\
+	\textbf{Periplasmic proteins:}
+
+	QUERY="taxonomy:Bacteria locations:(location:periplasm) annotation:(type:signal)"
+~\end{tcolorbox}
+
+In addition to previous searches, 
+it would be interesting to know for which twins there were PDB structures available.
+Therefore, a similar query search was performed as described above, but with the extra limitation
+(shown below).
+
+~\begin{tcolorbox}
+	\textbf{Cytoplasmic proteins:}
+
+	QUERY="taxonomy:Bacteria database:(type:pdb) (locations:(location:cytoplasm) OR locations:(location:cytosol)) NOT annotation:(type:signal)"
+	\\
+	\\
+	\textbf{Periplasmic proteins:}
+
+	QUERY="taxonomy:Bacteria locations:(location:periplasm) annotation:(type:signal) database:(type:pdb)"
+~\end{tcolorbox}
+
+ The query on all Bacteria resulted in \textbf{7,772,586 cytoplasmic} and 
+ \textbf{171,333 periplasmic} proteins. 
+ It should be noted that the phylum of Proteobacteria already contained 169,484 of the periplasmic proteins,
+making it the largest Gram-negative group.

@@ -1,0 +1,35 @@
+% Part about UniProtKb
+The amount of protein sequences in UniProtKB has been growing exponentially,
+but experimental information of functionality or biophysical features is only available for about 0.3 percent of the protein sequence space.
+% Relation between protein function and primary sequence
+Local and distant interactions along the primary structure guide the folding process,
+thereby determining structure , dynamics and function.
+Essentially, all of the biophysical features are encoded within the amino acid sequence.
+However, extracting those features has proven to be challenging and is still a topic of ongoing research.
+
+% More specific about dynamics
+Traditionally, protein function was thought to be a direct result of protein structure,
+But in recent years it has become clear that structure provides only part of the picture.
+Other biophysical features, such as the propensity toward dynamics, disorder, and early folding also seem to play a fundamental role for protein functionality.
+A new generation of machine learning based predictors that only need a single protein sequence as input
+are being developed at the Bio2Byte research lab at the Interuniversity Institute of Bioinformatics in Brussels.
+Not only can these predictors predict biophysical features without relying on prior structural knowledge,
+the predictions are also very fast,
+making them scalable for computational high-throughput methods.
+
+% What is unknown and what was researched
+In this master thesis,
+the biophysical features of cytoplasmic and periplasmic proteins were compared on an extensive Gram-negative Bacteria protein dataset.
+Additionally, the effect of signal peptides on these features was examined.
+This problem was approached from different directions.
+A global approach showed that on average,
+an increased tendency towards the formation coil and sheet structures,
+but decreased propensity towards the formation of helical structures was observed in periplasmic proteins.
+They also displayed lower backbone and sidechain dynamics,
+and an decreased tendency towards early folding.
+Two complementary positon specific approaches agreed on different features.
+Signal peptides seem the promote the propensity towards helix formation and early folding in the N-terminal region of periplasmic proteins, 
+but have an decreased propensity in the rest of the protein.
+Additionally, a region near position 33 was observed with increased early folding propensity and decreased coil formation.
+In a final approach, UniRep representations were utilized to make a predictor that can distinguish cytoplasmic and periplasmic proteins.
+
