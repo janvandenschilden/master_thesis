@@ -1,0 +1,7 @@
+*.list
+*.tab
+*.clstr
+*.fasta
+*.pim
+**__pycache__
+**.swp
